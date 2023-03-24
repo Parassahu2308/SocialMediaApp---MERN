@@ -38,32 +38,47 @@
     list-style: none;
 }
 
-.rightbarFriend{
+
+.rightBarTitle{
+    font-size: 18px;
+    font-weight: 500px;
+    margin-bottom: 10px;
+}
+
+.rightBarInfo{
+    margin-bottom: 30px;
+}
+
+.rightBarInfoItem{
+    margin-bottom: 10px;
+}
+
+.rightBarInfoKey{
+    font-weight: 500;
+    margin-right: 15px;
+    color: #555;
+}
+
+.rightBarInfoValue{
+    font-weight: 300;
+}
+
+.rightBarFollowingImage{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.rightBarFollowings{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.rightBarFollowing{
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    flex-direction: column;
     cursor: pointer;
-}
-
-.rightbarProfileImageContainer{
-    margin-right: 10px;
-    position: relative;
-}
-
-.rightbarProfileImage{
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.rightbarOnline{
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: limegreen;
-    top: -2px;
-    right: 0;
-    border: 2px solid white;
 }
