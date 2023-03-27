@@ -45,13 +45,14 @@ module.exports.DeleteUser = async function (req, res) {
 
 //Get a user
 module.exports.GetUser = async function (req, res) {
+  const userId = req.query.userId;
+  const username = req.query.username;
   try {
-    const user = await userModel.findById(req.params.id);
+    const user = userId
+      ? await userModel.findById(req.params.id)
+      : await userModel.findOne({ username: username });
     const { password, updatedAt, ...other } = user._doc;
-    res.status(200).json({
-      other,
-      msg: "Get a user information successfully",
-    });
+    res.status(200).json(other);
   } catch (err) {
     console.log(err);
   }

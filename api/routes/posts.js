@@ -5,6 +5,7 @@ const {
   LikePost,
   GetPost,
   TimelinePost,
+  UserPosts,
 } = require("../contollers/posts");
 
 const postRouters = require("express").Router();
@@ -25,6 +26,9 @@ postRouters.route("/:id/like").put(LikePost);
 postRouters.route("/:id").get(GetPost);
 
 //Get timeline Post
-postRouters.route("/timeline/all").get(TimelinePost);
+postRouters.route("/timeline/:userId").get(TimelinePost);
+
+//Get user post
+postRouters.route("/profile/:username").get(UserPosts);
 
 module.exports = postRouters;

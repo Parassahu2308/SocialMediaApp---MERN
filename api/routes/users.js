@@ -21,7 +21,7 @@ userRouters.route("/:id").put(UpdateUser);
 userRouters.route("/:id").delete(DeleteUser);
 
 //Get a User
-userRouters.route("/:id").get(GetUser);
+userRouters.route("/").get(GetUser);
 
 //Follow a user
 userRouters.route("/:id/follow").put(FollowUser);

@@ -71,7 +71,7 @@ module.exports.GetPost = async function (req, res) {
 //Get timeline Post
 module.exports.TimelinePost = async function (req, res) {
   try {
-    const currentUser = await userModels.findById(req.body.userId);
+    const currentUser = await userModels.findById(req.params.userId);
     const userPosts = await postModels.find({ userId: currentUser._id });
     const friendPosts = await Promise.all(
       currentUser.following.map((friendId) => {
@@ -79,6 +79,17 @@ module.exports.TimelinePost = async function (req, res) {
       })
     );
     res.status(200).json(userPosts.concat(...friendPosts));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//Get a user post
+module.exports.UserPosts = async function (req, res) {
+  try {
+    const user = await userModels.findOne({ username: req.params.username });
+    const posts = await postModels.find({ userId: user._id });
+    res.status(200).json(posts);
   } catch (err) {
     console.log(err);
   }

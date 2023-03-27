@@ -2,7 +2,7 @@ import Online from "../online/Online";
 import "./RightBar.css";
 import { Users } from "../../dummyData";
 
-const RightBar = () => {
+const RightBar = ({ profile }) => {
   const HomeRightBar = () => {
     return (
       <>
@@ -99,7 +99,7 @@ const RightBar = () => {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        <ProfileRightBar />
+        {profile ? <ProfileRightBar /> : <HomeRightBar />}
       </div>
     </div>
   );

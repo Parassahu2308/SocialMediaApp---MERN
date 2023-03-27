@@ -20,9 +20,9 @@ mongoose.connect(process.env.MONGO_URL).then(function (db) {
 
 //middlewares
 app.use(express.json());
+app.use(cors());
 app.use(helmet());
 app.use(morgan("common"));
-// app.use(cors);
 
 //Routers
 app.use("/api/users", userRouters);
